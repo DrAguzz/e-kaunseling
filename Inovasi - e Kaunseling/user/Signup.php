@@ -165,9 +165,10 @@
 
     <!-- mula untuk borang tempahan -->
     <center>
+
     <section class="form-container">
       <header class="form-header">Register & SignUp Form pelajar</header>
-      <form action="#" class="form">
+      <form method="POST" action="" class="form">
         <div class="input-box">
           <label>Nama Anda</label>
           <input type="text" placeholder="Sila Masukkan Nama Penuh anda" required />
