@@ -1,3 +1,9 @@
+<?php
+
+include("../database/config.php");
+
+?>
+
 <!-- mula untuk buat e kaunseling -->
 <!DOCTYPE html>
 <html lang="en">
@@ -171,21 +177,17 @@
     <center>
     <section class="form-container">
       <header class="form-header">LogIn Form pelajar</header>
-      <form action="#" class="form">
+      <form action="../user/backend/login-engine.php" method="POST" class="form">
         <div class="input-box">
           <label>Nama Anda</label>
-          <input type="text" placeholder="Sila Masukkan Nama Penuh anda" required />
-        </div>
-        <div class="input-box">
-          <label>Email Anda</label>
-          <input type="text" placeholder="Sila Masukkan Email Anda" required />
+          <input type="text" name="nama" placeholder="Sila Masukkan Nama Penuh anda" required />
         </div>
         <div class="input-box">
           <label>No Kad Matrik</label>
-          <input type="text" placeholder="Sila Masukkan Nombor Kad Matrik" required />
+          <input type="text" name="no_matrik" placeholder="Sila Masukkan Nombor Kad Matrik" required />
         </div>
-        <button>Hantar</button>
-        <button><a href="index.php">Kembali</a></button>
+        <button type="submit" name="submit">Hantar</button>
+        <button><a href="landing.php">Kembali</a></button>
         <br>
         <br>
         <span>Belum Register mari...</span><a href="Signup.php">Daftar Sekarang</a>

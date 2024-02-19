@@ -1,3 +1,17 @@
+<?php
+
+include("../database/config.php");
+
+session_start();
+
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+
+  header("Location: login-user.php");
+  exit;
+}
+
+?>
+
 <!-- mula untuk buat e kaunseling -->
 <!DOCTYPE html>
 <html lang="en">
@@ -163,7 +177,7 @@
     <center>
     <section class="form-container">
       <header class="form-header">Permohonan Temu Janji Kaunselor</header>
-      <form action="#" class="form">
+      <form action="tempahan-engine.php" class="form">
         <div class="input-box">
           <label>Nama Anda</label>
           <input type="text" placeholder="Sila Masukkan Nama Penuh anda" required />
