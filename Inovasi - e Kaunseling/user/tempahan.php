@@ -2,6 +2,14 @@
 
 include("../database/config.php");
 
+session_start();
+
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+
+  header("Location: login-user.php");
+  exit;
+}
+
 ?>
 
 <!-- mula untuk buat e kaunseling -->

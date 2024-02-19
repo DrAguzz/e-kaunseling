@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 		if($nama == $nama){
 			$_SESSION['logged_in']=true;
 			echo "<script>alert('Log In berjaya.');"
-            . "window.location='../lamanutama.php'</script>";
+            . "window.location='../lamanutama.php'</script>"; 
 		}else{
 			$_SESSION['error']="Murid Tidak Dijumpai";
 			echo "<script>alert('Maklumat salah 1');"

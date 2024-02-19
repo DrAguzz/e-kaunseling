@@ -25,7 +25,7 @@
       <div class="nav__logo">e-Kaunseling<span>.</span></div>
 
     <!-- untuk button navbar -->
-      <button class="btn"><a href="login.php">Daftar</a></button>
+      <button class="btn"><a href="login-user.php">Daftar</a></button>
     </nav>
 
     <!-- bahagian header -->
