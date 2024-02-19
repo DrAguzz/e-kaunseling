@@ -1,10 +1,9 @@
 <?php
-    $user = "root";
-    $pass = "";
-    $e = "File Cant Open";
-try{
-    $dbh = new PDO('mysql:host=localhost; dbname=sistemkaunseling',$user,$pass);
-} catch (PDOExection $e){
-    echo $e;
-}
+
+$databaseHost = 'localhost';
+$databaseName = 'sistemkaunseling';
+$databaseUsername = 'root';
+$databasePassword = '';
+
+$mysqli = mysqli_connect($databaseHost,$databaseUsername,$databasePassword, $databaseName);
 ?>

@@ -1,3 +1,9 @@
+<?php
+
+include("../database/config.php");
+
+?>
+
 <!-- mula untuk buat e kaunseling -->
 <!DOCTYPE html>
 <html lang="en">
@@ -167,33 +173,33 @@
     <center>
 
     <section class="form-container">
-      <header class="form-header">Register & SignUp Form pelajar</header>
-      <form method="POST" action="" class="form">
+      <header class="form-header">Register & Sign Up Form pelajar</header>
+      <form action="../user/backend/signup-engine.php" method="POST" class="form">
         <div class="input-box">
           <label>Nama Anda</label>
-          <input type="text" placeholder="Sila Masukkan Nama Penuh anda" required />
+          <input type="text" name="nama" placeholder="Sila Masukkan Nama Penuh anda" required />
         </div>
         <div class="input-box">
           <label>Nombor Telefon</label>
-          <input type="text" placeholder="Sila Masukkan Nombor Telefon Anda" required />
+          <input type="text" name="notel" placeholder="Sila Masukkan Nombor Telefon Anda" required />
         </div>
         <div class="input-box">
           <label>No Kad Pengenalan</label>
-          <input type="text" placeholder="Sila Masukkan Nombor Kad Pengenalan Anda" required />
+          <input type="text" name="nokp" placeholder="Sila Masukkan Nombor Kad Pengenalan Anda" required />
         </div>
         <div class="input-box">
           <label>Email</label>
-          <input type="text" placeholder="Sila Masukkan Alamat Email anda" required />
+          <input type="text" name="email" type="text" placeholder="Sila Masukkan Alamat Email anda" required />
         </div>
         <div class="input-box">
           <label>No Kad Matrik</label>
-          <input type="text" placeholder="Sila Masukkan Nombor Kad Matrik" required />
+          <input type="text" name="no_matrik" type="text" placeholder="Sila Masukkan Nombor Kad Matrik" required />
         </div>
         <div class="input-box address">
           <label>Kelas</label>
           <div class="column">
             <div class="select-box">
-              <select>
+              <select name="kelas">
                 <option hidden>Sila Pilih Kelas Anda</option>
                 <option value="1 SVM KPD">1 SVM KPD</option>
 							<option value="2 SVM KPD">2 SVM KPD</option>
@@ -231,7 +237,7 @@
             </div>
           </div>
         </div>
-        <button>Hantar</button>
+        <button type="submit" name="submit">Hantar</button>
         <!-- <button><a href="index.php">Kembali</a></button> -->
         <br>
         <br>
