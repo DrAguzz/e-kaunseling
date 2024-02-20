@@ -44,7 +44,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <li class="link"><a href="tempahan.php">Tempahan</a></li>
         <li class="link"><a href="game.php">Game</a></li>
       </ul>
-      <button class="btn"><a href="login.php">Daftar</a></button>
+      <button class="btn"><a href="logout.php">Log Out</a></button>
     </nav>
 
     <!-- bahagian header -->
