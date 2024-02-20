@@ -1,8 +1,7 @@
 <?php
-try {
-    $user = "root";
-    $pass = "";
-    $dbh = new PDO('mysql:host=localhost;dbname=sistemkaunseling', $user, $pass);
-} catch (PDOException $e) {
-    echo $e;
-}
+    $server = "localhost";
+    $user = 'root';
+    $pass = '';
+    $dbname = 'sistemkaunseling';
+    $conn = mysqli_connect($server,$user, $pass,$dbname);
+?>
