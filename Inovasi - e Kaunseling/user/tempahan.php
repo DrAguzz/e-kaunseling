@@ -1,3 +1,9 @@
+<?php
+
+include("../database/config.php");
+
+?>
+
 <!-- mula untuk buat e kaunseling -->
 <!DOCTYPE html>
 <html lang="en">
@@ -147,7 +153,7 @@
         <li class="link"><a href="tempahan.php">Tempahan</a></li>
         <li class="link"><a href="game.php">Game</a></li>
       </ul>
-      <button class="btn"><a href="login.php">Daftar</a></button>
+      <button class="btn"><a href="logout.php">Log Out</a></button>
     </nav>
 
     <br>
@@ -163,34 +169,34 @@
     <center>
     <section class="form-container">
       <header class="form-header">Permohonan Temu Janji Kaunselor</header>
-      <form action="#" class="form">
+      <form action="../user/backend/tempahan-engine.php" class="form" method="POST">
         <div class="input-box">
           <label>Nama Anda</label>
-          <input type="text" placeholder="Sila Masukkan Nama Penuh anda" required />
+          <input type="text" name="nama" placeholder="Sila Masukkan Nama Penuh anda" required />
         </div>
         <div class="input-box">
           <label>Nombor Telefon</label>
-          <input type="text" placeholder="Sila Masukkan Nombor Telefon Anda" required />
+          <input type="text" name="notel" placeholder="Sila Masukkan Nombor Telefon Anda" required />
         </div>
         <div class="input-box">
           <label>Email</label>
-          <input type="text" placeholder="Sila Masukkan Alamat Email anda" required />
+          <input type="text" name="email" placeholder="Sila Masukkan Alamat Email anda" required />
         </div>
         <div class="column">
           <div class="input-box">
             <label>Masa Temu Janji</label>
-            <input type="time" placeholder="Sila Masukkan Masa Temu Janji anda" required />
+            <input type="time" name="masa" placeholder="Sila Masukkan Masa Temu Janji anda" required />
           </div>
           <div class="input-box">
             <label>Tarikh</label>
-            <input type="date" placeholder="Sila Masukkan Tarkh temu Janji anda" required />
+            <input type="date" name="tarikh" placeholder="Sila Masukkan Tarkh temu Janji anda" required />
           </div>
         </div>
         <div class="input-box address">
           <label>Kelas</label>
           <div class="column">
             <div class="select-box">
-              <select>
+              <select name="kelas">
                 <option hidden>Sila Pilih Kelas Anda</option>
                 <option value="1 SVM KPD">1 SVM KPD</option>
 							<option value="2 SVM KPD">2 SVM KPD</option>
@@ -228,7 +234,7 @@
             </div>
           </div>
         </div>
-        <button>Hantar</button>
+        <button type="submit" name="submit">Hantar</button>
       </form>
     </section>
     </center>

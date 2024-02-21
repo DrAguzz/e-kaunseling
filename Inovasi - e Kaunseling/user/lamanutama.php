@@ -1,3 +1,9 @@
+<?php
+
+include("../database/config.php");
+
+?>
+
 <!-- mula untuk buat e kaunseling -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +37,9 @@
         <li class="link"><a href="tempahan.php">Tempahan</a></li>
         <li class="link"><a href="game.php">Game</a></li>
       </ul>
-      <button class="btn"><a href="login.php">Daftar</a></button>
+      <ul>
+        <button class="btn"><a href="logout.php">Log Out</a></button>
+      </ul>
     </nav>
 
     <!-- bahagian header -->
