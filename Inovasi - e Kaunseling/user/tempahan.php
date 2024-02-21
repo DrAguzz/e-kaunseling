@@ -184,12 +184,23 @@ include("../database/config.php");
         </div>
         <div class="column">
           <div class="input-box">
-            <label>Masa Temu Janji</label>
-            <input type="time" name="masa" placeholder="Sila Masukkan Masa Temu Janji anda" required />
+            <label>Sesi</label>
+            <div class="column">
+              <div class="select-box">
+                <select name="sesi">
+                  <option hidden>Sila Pilih Sesi</option>
+                  <option value="SESI 1 (8 AM - 9 AM)">SESI 1 (8 AM - 9 AM)</option>
+                  <option value="SESI 2 (9 AM - 10 AM)">SESI 2 (9 AM - 10 AM)</option>
+                  <option value="SESI 3 (10 AM - 11 AM)">SESI 3 (10 AM - 11 AM)</option>
+                  <option value="SESI 4 (11 AM - 12 AM)">SESI 4 (11 AM - 12 AM)</option>
+                  <option value="SESI 5 (2 PM - 3 PM)">SESI 5 (2 PM - 3 PM)</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="input-box">
             <label>Tarikh</label>
-            <input type="date" name="tarikh" placeholder="Sila Masukkan Tarkh temu Janji anda" required />
+            <input type="date" name="tarikh" required />
           </div>
         </div>
         <div class="input-box address">
