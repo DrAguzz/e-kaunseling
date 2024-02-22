@@ -42,8 +42,8 @@
             ?>
             
                     <tr>
-                      <th scope="row"><?php echo $no; ?></th>
-                      <td><img src="..  /upload/aktiviti/<?php echo $row['gambar'] ?>" alt="" style="height: 50px; width: auto;"></td>
+                      <th scope="row"><?php echo "$no."; ?></th>
+                      <td><img src="../upload/aktiviti/<?php echo $row['gambar']; ?>" alt="" style="height: 80px; width: auto;"></td>
                       <td><?php echo $row['tajuk'] ?></td>
                       <td style="width: 300px;"><textarea name="" id="" cols="30" rows="10" style=" max-height: 80px; " readonly><?php echo $row['detail'] ?></textarea></td>
                       <td>
@@ -51,8 +51,8 @@
                       </td>
                       <td class="text-center">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-outline-danger">Padam</button>
-                            <button type="button" class="btn btn-outline-success">Kemaskini</button>
+                            <a href="./backend/delete/aktiviti.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-outline-danger">Padam</button></a>
+                            <a href="./backend/update/aktiviti.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-outline-success">Kemaskini</button></a>
                           </div>
                       </td>
                     </tr>
@@ -106,6 +106,7 @@
             </div>
         </form>    
     </div>
+</div>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

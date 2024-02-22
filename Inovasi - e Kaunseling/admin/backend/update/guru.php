@@ -53,7 +53,7 @@ include("../../../database/config.php");
                           <input class="form-control" name="notel" type="text" id="formFile" placeholder="60*******" value="<?php echo $row['notel'];?>">
                       </div>
                         <div class="d-grid gap-2 d-flex justify-content-md-end">
-                            <button class="btn btn-outline-danger" type="button" onclick="batal()">Batal</button>
+                            <a href="../../menu/guru.php"><button class="btn btn-outline-danger" type="button" >Batal</button></a>
                             <button class="btn btn-primary" type="submit" name="submit">Hantar</button>
                         </div>
                     </div>
