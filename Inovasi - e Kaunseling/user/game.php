@@ -130,16 +130,18 @@ include("../database/config.php");
     <nav>
     
     <!-- untuk logo -->
-      <div class="nav__logo">e-Kaunseling<span>.</span></div>
+    <div class="nav__logo">
+        <a href="lamanutama.php">e-Kaunseling<span>.</span></a>
+    </div>
 
     <!-- untuk button navbar -->
-      <ul class="nav__links">
+    <ul class="nav__links">
         <li class="link"><a href="lamanutama.php">Home</a></li>
         <li class="link"><a href="aktivitikaunseling.php">Aktiviti</a></li>
         <li class="link"><a href="tempahan.php">Tempahan</a></li>
         <li class="link"><a href="game.php">Game</a></li>
       </ul>
-      <button class="btn"><a href="logout.php">Log Out</a></button>
+      <ul></ul>
     </nav>
 
     <!-- bahagian header -->
