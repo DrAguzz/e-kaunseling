@@ -23,8 +23,9 @@
                       <th scope="col">Nama</th>
                       <th scope="col">Kelas</th>
                       <th scope="col">Email</th>
-                      <th> Tarikh Perjumpaan </th>
-                      <th> Masa </th>
+                      <th scope="col">Sesi</th>
+                      <th>Tarikh Perjumpaan</th>
+                      <th>Guru Bertugas</th>
                       <th scope="col" class="text-center">Tindakan</th>
                     </tr>
                   </thead>
@@ -32,58 +33,39 @@
                     <tr>
                       <th scope="row">1</th>
                       <td>Mark</td>
-                      <td>Otto</td>
+                      <td>4 Otto</td>
                       <td>@mdo</td>
+                      <td>Sesi 2</td>
+                      <td>dd/mm/yyyy</td>
                       <td>
-                        <input type="date" id="userDate" class="form-control">
-                      </td>
-                      <td>
-                        <input type="time" class="form-control">
+                      <select name="guru" id="" class="form-control">
+    <option value="" hidden>click here</option>
+    <?php
+    $query2 = "SELECT * FROM admin";
+    $sql2 = mysqli_query($conn, $query2);
+
+    // Check if the query was successful
+    if ($sql2) {
+        // Fetch data from the result set using a while loop
+        while ($row = mysqli_fetch_assoc($sql2)) {
+            ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['nama']; ?></option>
+            <?php
+        }
+    } else {
+        // Handle query error (you might want to log or display an error message)
+        echo "Error: " . mysqli_error($conn);
+    }
+    ?>
+</select>
+
                       </td>
                       <td class="text-center">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <button type="button" class="btn btn-outline-danger">Tolak</button>
                             <button type="button" class="btn btn-outline-success">Terima</button>
                           </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>
-                        <input type="date" id="userDate" class="form-control">
-                      </td>
-                      <td>
-                        <input type="time" class="form-control">
-                      </td>
-                      <td class="text-center">
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-outline-danger">Tolak</button>
-                            <button type="button" class="btn btn-outline-success">Terima</button>
-                        </div>
-                      </td>
-
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry the Bird</td>
-                      <td>Larry</td>
-                      <td>@twitter</td>
-                      <td>
-                        <input type="date" id="userDate" class="form-control">
-                      </td>
-                      <td>
-                        <input type="time" class="form-control">
-                      </td>
-                      <td class="text-center">
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-outline-danger">Tolak</button>
-                            <button type="button" class="btn btn-outline-success">Terima</button>
-                        </div>
-                      </td>
-
+                      </td> 
                     </tr>
                   </tbody>
             </table>

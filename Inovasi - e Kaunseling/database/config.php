@@ -1,9 +1,7 @@
 <?php
-
-$databaseHost = 'localhost';
-$databaseName = 'sistemkaunseling';
-$databaseUsername = 'root';
-$databasePassword = '';
-
-$mysqli = mysqli_connect($databaseHost,$databaseUsername,$databasePassword, $databaseName);
+    $server = "localhost";
+    $user = 'root';
+    $pass = '';
+    $dbname = 'sistemkaunseling';
+    $conn = mysqli_connect($server,$user, $pass,$dbname);
 ?>
