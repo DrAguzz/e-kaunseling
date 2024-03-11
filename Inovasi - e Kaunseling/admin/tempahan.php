@@ -38,17 +38,27 @@
                       <td>Sesi 2</td>
                       <td>dd/mm/yyyy</td>
                       <td>
-                        <select name="guru" id="" class="form-control">
-                          <option value="" hidden>click here</option>
-                          <option value="" >Pn. Umi</option>
-                          <option value="" >Pn. Wani</option>
-                          <option value="" >Pn. Umi</option>
-                          <option value="" >Pn. Wani</option>
-                          <option value="" >Pn. Umi</option>
-                          <option value="" >Pn. Wani</option>
+                      <select name="guru" id="" class="form-control">
+    <option value="" hidden>click here</option>
+    <?php
+    $query2 = "SELECT * FROM admin";
+    $sql2 = mysqli_query($conn, $query2);
 
-                          
-                        </select>
+    // Check if the query was successful
+    if ($sql2) {
+        // Fetch data from the result set using a while loop
+        while ($row = mysqli_fetch_assoc($sql2)) {
+            ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['nama']; ?></option>
+            <?php
+        }
+    } else {
+        // Handle query error (you might want to log or display an error message)
+        echo "Error: " . mysqli_error($conn);
+    }
+    ?>
+</select>
+
                       </td>
                       <td class="text-center">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
