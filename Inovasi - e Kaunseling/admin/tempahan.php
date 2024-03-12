@@ -1,3 +1,8 @@
+<?php
+include("../database/config.php");
+$result = mysqli_query($conn, "SELECT * FROM tempahan");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,43 +35,51 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>4 Otto</td>
-                      <td>@mdo</td>
-                      <td>Sesi 2</td>
-                      <td>dd/mm/yyyy</td>
-                      <td>
-                      <select name="guru" id="" class="form-control">
-    <option value="" hidden>click here</option>
-    <?php
+
+                  <?php
+      $no=1;
+      
+      while($res = mysqli_fetch_array($result)) {
+          echo "<tr>";  
+          echo "<th>".$no; 
+          echo "<th>".$res['nama']."</th>"; 
+          echo "<th>".$res['kelas']."</th>";
+          echo "<th>".$res['email']."</th>";
+          echo "<th>".$res['sesi']."</th>";
+          echo "<th>".$res['tarikh']."</th>";
+          // Menambahkan elemen select untuk setiap baris tempahan
+    // Query untuk data guru di dalam loop tempahan
     $query2 = "SELECT * FROM admin";
     $sql2 = mysqli_query($conn, $query2);
-
-    // Check if the query was successful
-    if ($sql2) {
-        // Fetch data from the result set using a while loop
-        while ($row = mysqli_fetch_assoc($sql2)) {
-            ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['nama']; ?></option>
-            <?php
-        }
-    } else {
-        // Handle query error (you might want to log or display an error message)
-        echo "Error: " . mysqli_error($conn);
+    
+    // Menambahkan elemen select untuk setiap baris tempahan
+    echo "<td>";
+    echo "<select name='guru_$no' class='form-control'>";
+    echo "<option value='' hidden>Pilih Guru</option>";
+    
+    // Loop untuk menampilkan opsi guru
+    while ($row = mysqli_fetch_assoc($sql2)) {
+        echo "<option value='".$row['id']."'>".$row['nama']."</option>";
     }
-    ?>
-</select>
 
-                      </td>
-                      <td class="text-center">
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-outline-danger">Tolak</button>
-                            <button type="button" class="btn btn-outline-success">Terima</button>
-                          </div>
-                      </td> 
-                    </tr>
+    echo "</select>";
+    echo "</td>";
+
+    // Tombol aksi lainnya
+    echo "<td class='text-center'>";
+    echo "<div class='btn-group' role='group' aria-label='Basic mixed styles example'>";
+    echo "<button type='button' class='btn btn-outline-danger' onclick='tolakFunction()'>Tolak</button>";
+    echo "<button type='button' class='btn btn-outline-success' onclick='terimaFunction()'>Terima</button>";
+    echo "</div>";
+    echo "</td>"; 
+    
+    echo "</tr>";
+          
+          $no++;
+      }
+         ?>
+
+                    
                   </tbody>
             </table>
             </div>
