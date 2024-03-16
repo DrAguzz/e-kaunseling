@@ -11,6 +11,10 @@
   <?php
     $link = ".";
     include("$link/src/nav.php");
+    include("../database/config.php");
+    $sql = mysqli_query($conn,"SELECT * FROM tempahan");
+    $sql2 = mysqli_query($conn,"SELECT * FROM admin");
+    $no= 1;
   ?>
     <div class="container">
       <div class="bg-body-tertiary p-5 rounded-3 mt-5" style="heigth: auto;">
@@ -30,42 +34,40 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>4 Otto</td>
-                      <td>@mdo</td>
-                      <td>Sesi 2</td>
-                      <td>dd/mm/yyyy</td>
-                      <td>
-                      <select name="guru" id="" class="form-control">
-    <option value="" hidden>click here</option>
-    <?php
-    $query2 = "SELECT * FROM admin";
-    $sql2 = mysqli_query($conn, $query2);
+              
+                      <?php
+                      if($count = mysqli_num_rows($sql)){
+                        while($row = mysqli_fetch_array($sql)){ ?>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td><?php echo $row['nama'];?></td>
+                          <td><?php echo $row['kelas'];?></td>
+                          <td><?php echo $row['email'];?></td>
+                          <td><?php echo $row['sesi'];?></td>
+                          <td><?php echo $row['tarikh'];?></td>
+                          <td><select name="pensyarah" id="" class="form-control">
+                            <option value="" hidden>click here</option>
+                            <?php
+                              if($count = mysqli_num_rows($sql2)){
+                                while($row = mysqli_fetch_array($sql2)){?>
+                                  <option value="<?php echo $row['nama'];?>"><?php echo $row['nama'];?></option>
 
-    // Check if the query was successful
-    if ($sql2) {
-        // Fetch data from the result set using a while loop
-        while ($row = mysqli_fetch_assoc($sql2)) {
-            ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['nama']; ?></option>
-            <?php
-        }
-    } else {
-        // Handle query error (you might want to log or display an error message)
-        echo "Error: " . mysqli_error($conn);
-    }
-    ?>
-</select>
-
-                      </td>
-                      <td class="text-center">
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <?php }
+                              }
+                            ?>
+                          </select>
+                            </td>
+                            <td>
                             <button type="button" class="btn btn-outline-danger">Tolak</button>
                             <button type="button" class="btn btn-outline-success">Terima</button>
-                          </div>
-                      </td> 
+                            </td>
+                            <tr></tr>
+                        <?php }
+
+                      }
+                      
+                      
+                      ?>
                     </tr>
                   </tbody>
             </table>
