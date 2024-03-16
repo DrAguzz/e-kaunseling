@@ -1,3 +1,8 @@
+<?php
+include("../database/config.php");
+$result = mysqli_query($conn, "SELECT * FROM tempahan");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,41 +39,49 @@
                     </tr>
                   </thead>
                   <tbody>
-              
-                      <?php
-                      if($count = mysqli_num_rows($sql)){
-                        while($row = mysqli_fetch_array($sql)){ ?>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td><?php echo $row['nama'];?></td>
-                          <td><?php echo $row['kelas'];?></td>
-                          <td><?php echo $row['email'];?></td>
-                          <td><?php echo $row['sesi'];?></td>
-                          <td><?php echo $row['tarikh'];?></td>
-                          <td><select name="pensyarah" id="" class="form-control">
-                            <option value="" hidden>click here</option>
-                            <?php
-                              if($count = mysqli_num_rows($sql2)){
-                                while($row = mysqli_fetch_array($sql2)){?>
-                                  <option value="<?php echo $row['nama'];?>"><?php echo $row['nama'];?></option>
 
-                                <?php }
-                              }
-                            ?>
-                          </select>
-                            </td>
-                            <td>
-                            <button type="button" class="btn btn-outline-danger">Tolak</button>
-                            <button type="button" class="btn btn-outline-success">Terima</button>
-                            </td>
-                            <tr></tr>
-                        <?php }
+    <?php
+      $no=1;
+      
+      while($res = mysqli_fetch_array($result)) {
+          echo "<tr>";  
+          echo "<th>".$no; 
+          echo "<th>".$res['nama']."</th>"; 
+          echo "<th>".$res['kelas']."</th>";
+          echo "<th>".$res['email']."</th>";
+          echo "<th>".$res['sesi']."</th>";
+          echo "<th>".$res['tarikh']."</th>";
+          // Menambahkan elemen select untuk setiap baris tempahan
+    // Query untuk data guru di dalam loop tempahan
+    $query2 = "SELECT * FROM admin";
+    $sql2 = mysqli_query($conn, $query2);
+    
+    // Menambahkan elemen select untuk setiap baris tempahan
+    echo "<td>";
+    echo "<select name='guru_$no' class='form-control'>";
+    echo "<option value='' hidden>Pilih Guru</option>";
+    
+    // Loop untuk menampilkan opsi guru
+    while ($row = mysqli_fetch_assoc($sql2)) {
+        echo "<option value='".$row['id']."'>".$row['nama']."</option>";
+    }
 
-                      }
-                      
-                      
-                      ?>
-                    </tr>
+    echo "</select>";
+    echo "</td>";
+
+    // Tombol aksi lainnya
+    echo "<td class='text-center'>";
+    echo "<div class='btn-group' role='group' aria-label='Basic mixed styles example'>";
+    echo "<button type='button' class='btn btn-outline-danger' onclick='tolakFunction()'>Tolak</button>";
+    echo "<button type='button' class='btn btn-outline-success' onclick='terimaFunction()'>Terima</button>";
+    echo "</div>";
+    echo "</td>"; 
+    
+    echo "</tr>";
+          
+          $no++;
+      }
+         ?>
                   </tbody>
             </table>
             </div>

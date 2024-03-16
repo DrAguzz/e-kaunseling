@@ -7,20 +7,20 @@ if(isset($_POST['submit'])){
     $nama = $_POST['nama'];
     $notel = $_POST['notel'];
     $email = $_POST['email'];
-    $masa = $_POST['masa'];
+    $sesi = $_POST['sesi'];
     $tarikh = $_POST['tarikh'];
     $kelas = $_POST['kelas'];
 
-    $check_query = "SELECT * FROM tempahan WHERE masa = '$masa' AND tarikh = '$tarikh'";
+    $check_query = "SELECT * FROM tempahan WHERE sesi = '$sesi' AND tarikh = '$tarikh'";
     $check_result = mysqli_query($mysqli, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
         echo "<script>alert('data tindih');"
-        . "window.location='index.php'</script>";
+        . "window.location='../tempahan.php'</script>";
     } else {
-        $result = mysqli_query ($mysqli, "INSERT INTO tempahan VALUES (NULL,'$nama','$notel','$email','$masa','$tarikh','$kelas')");
+        $result = mysqli_query ($mysqli, "INSERT INTO tempahan VALUES ('','$nama','$notel','$email','$sesi','$tarikh','$kelas',NULL)");
         echo "<script>alert('lulus');"
-        . "window.location='index.php'</script>";
+        . "window.location='../tempahan.php'</script>";
         
         
     }
