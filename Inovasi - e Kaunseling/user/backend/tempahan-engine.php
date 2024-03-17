@@ -12,13 +12,13 @@ if(isset($_POST['submit'])){
     $kelas = $_POST['kelas'];
 
     $check_query = "SELECT * FROM tempahan WHERE sesi = '$sesi' AND tarikh = '$tarikh'";
-    $check_result = mysqli_query($mysqli, $check_query);
+    $check_result = mysqli_query($conn, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
         echo "<script>alert('data tindih');"
         . "window.location='../tempahan.php'</script>";
     } else {
-        $result = mysqli_query ($mysqli, "INSERT INTO tempahan VALUES ('','$nama','$notel','$email','$sesi','$tarikh','$kelas',NULL)");
+        $result = mysqli_query ($conn, "INSERT INTO tempahan VALUES ('','$nama','$notel','$email','$sesi','$tarikh','$kelas',1)");
         echo "<script>alert('lulus');"
         . "window.location='../tempahan.php'</script>";
         

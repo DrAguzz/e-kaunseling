@@ -178,7 +178,7 @@ include("../database/config.php");
       <form action="../user/backend/tempahan-engine.php" class="form" method="POST">
         <div class="input-box">
           <label>Nama Anda</label>
-          <input type="text" name="nama" placeholder="Sila Masukkan Nama Penuh anda" required />
+          <input type="text" name="nama" id="nama" oninput="uppercase()" placeholder="Sila Masukkan Nama Penuh anda" required />
         </div>
         <div class="input-box">
           <label>Nombor Telefon</label>
@@ -206,7 +206,7 @@ include("../database/config.php");
           </div>
           <div class="input-box">
             <label>Tarikh</label>
-            <input type="date" name="tarikh" required />
+            <input type="date" name="tarikh" oninput="formatDate()" id="tarikh" required />
           </div>
         </div>
         <div class="input-box address">
@@ -304,3 +304,24 @@ include("../database/config.php");
     </footer>
   </body>
 </html>
+<script>
+
+  function uppercase(){
+    var namaInput = document.getElementById("nama");
+    namaInput.value = namaInput.value.toUpperCase();
+  }
+
+  function formatDate() {
+    var dateInput = document.getElementById("tarikh");
+    var inputDate = new Date(dateInput.value);
+    
+    var year = inputDate.getFullYear();
+    var month = ('0' + (inputDate.getMonth() + 1)).slice(-2); // Adding leading zero
+    var day = ('0' + inputDate.getDate()).slice(-2); // Adding leading zero
+    
+    var formattedDate = day + '-' + month + '-' + year;
+    
+    dateInput.value = formattedDate;
+}
+
+</script>
