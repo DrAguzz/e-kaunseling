@@ -311,17 +311,4 @@ include("../database/config.php");
     namaInput.value = namaInput.value.toUpperCase();
   }
 
-  function formatDate() {
-    var dateInput = document.getElementById("tarikh");
-    var inputDate = new Date(dateInput.value);
-    
-    var year = inputDate.getFullYear();
-    var month = ('0' + (inputDate.getMonth() + 1)).slice(-2); // Adding leading zero
-    var day = ('0' + inputDate.getDate()).slice(-2); // Adding leading zero
-    
-    var formattedDate = day + '-' + month + '-' + year;
-    
-    dateInput.value = formattedDate;
-}
-
 </script>
