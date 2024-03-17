@@ -1,8 +1,5 @@
 <?php
-
 include("../database/config.php");
-
-
 ?>
 
 <!-- mula untuk buat e kaunseling -->
@@ -310,5 +307,4 @@ include("../database/config.php");
     var namaInput = document.getElementById("nama");
     namaInput.value = namaInput.value.toUpperCase();
   }
-
 </script>
